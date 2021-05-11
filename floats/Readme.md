@@ -1,14 +1,25 @@
-# Basic css exercise 1
+# Content 
+- [Content](#content)
+- [Basic CSS exercise 1](#basic-css-exercise-1)
+- [About floats](#about-floats)
+  - [Document flow and floats](#document-flow-and-floats)
+  - [Float catching](#float-catching)
+- [Margin collapse](#margin-collapse)
+    - [Preventing margin-collapse](#preventing-margin-collapse)
+- [BFC to prevent wrapping around objects.](#bfc-to-prevent-wrapping-around-objects)
+- [Lobotomized owl selector * + *](#lobotomized-owl-selector---)
+  
+# Basic CSS exercise 1
 
 The first page is a simple two column page which was built using some good old floats. A screenshot of the resulting page can be seen below. The rest of this document are just a few of the lessons learned why building this page.
 
 ![screenshot](./img/readme/floatpage.png)
 
 
-## About floats
+# About floats
 Floats at its birth where intended for content to flow around objects. Just as in printed media it allows for instance text to flow around images. Developers found that we could exploit this feature to create all kinds of layouts. Flex box and grids are modern approaches to layout but floats are still very much relevant to learn.
 
-### Document flow and floats
+## Document flow and floats
 Floated objects are removed from normal document flow. As floated objects are not part of the normal document flow they won't add to height of their parent container.In some cases we do want floats objects to add height to their parent container.In those cases a clearfix can be added to the parent container. The basic idee of clearfix is to use the clear property in one or an other way to enforce container to grow beyond the floated elements. For instance we could add div at the end of block with the clear property set to both so for instance 
 ```html
 <div class="container">
@@ -41,7 +52,7 @@ Above version will create a
 add a table element at top and bottom of its container. This works because
 an implicit table-row will be created within the table. Margins don't collapse through table rows (as they create block formatting context. ???)
 
-### Float catching
+## Float catching
 Float catching occurs when a first element is higher than a second element. if we float a third element which normally would overflow to the second line it would instead be aligned to the right caught on the edge lower edge of the first.  
 
 ![float catching](./img/readme/float-catching.png)
@@ -54,7 +65,8 @@ The cure for this is using clear. For instance in this case we could clear odd e
   }
 ```
 
-### Collapsed margins
+# Margin collapse
+
 Top and/or bottom margins will sometimes collapse. By collapsing margin we mean that two or more margins will be combined to create single margin. The size of such a margin is always the size of the largest margin among the combined margins. Margins between adjacent sibling collapse in most cases. Let's look at a simple scenario.
  
  ```html
@@ -176,7 +188,7 @@ There are several ways of preventing margins from collapsing depending on situat
 No more gap between header and main box. One strategy to avoid surprises caused by user user agent set margins is to simply reset all margins to 0. This of course makes you responsible of setting all your margins by hand. When doing so it could be a good idea to always stick to only set bottom margins. This way you minimize risk running into to surprising margin collapses.
 
 
-### BFC to prevent wrapping around objects.
+# BFC to prevent wrapping around objects.
 Following short description of block formatting context can be found at [MDN documentation pages](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context)
 
 > A block formatting context is a part of a visual CSS rendering of a web page. It's the region in which the layout of block boxes occurs and in which floats interact with other elements.
@@ -230,7 +242,7 @@ A block formatting context is created in a number of situations. For instance we
 
 ![bfc](./img/readme/bfc-overflow.png)
 
-### Lobotomized owl selector * + *
+# Lobotomized owl selector * + *
 
 This pattern selects any element followed by any adjacent element. This would select any element that is not first child of its parents. This could for instance be used to set some default top margin throughout your page or by combining with some other selector within some specific area of you page. 
 ```css
