@@ -1,0 +1,44 @@
+:root {
+  box-sizing: border-box;
+}
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+
+header {
+  border: dashed red 2px;
+}
+nav.sidebar > ul {
+  margin-top: 0;
+  padding: 0;
+}
+.wrapper {
+  display: flex;
+}
+.sidebar {
+  border: dashed red 2px;
+  width: 30%;
+  /* background-image: ; */
+}
+.sidebar__item {
+  padding: 1.2em;
+  list-style-type: none;
+  cursor: pointer;
+  background-color: rgb(48, 53, 95);
+  text-align: center;
+}
+.sidebar__item + .sidebar__item {
+  margin-top: 1.2em;
+}
+
+.sidebar__item > a {
+  text-decoration: none;
+  color: white;
+}
+.main-content {
+  width: 70%;
+  margin-left: 1.5em;
+  border: dashed red 2px;
+}
