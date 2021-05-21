@@ -4,3 +4,6 @@ I have to confess that CSS is one of those things that I haven't given enough at
 
 ## [Exercise 1](./floats)
  ![first](./floats/img/readme/floatpage.png)   
+
+ ## [Exercise 2](./flex)
+ ![first](./flex/img/readme/layout.png)   

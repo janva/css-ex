@@ -1,0 +1,156 @@
+:root {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+body {
+  background-color: #446b75;
+  font-family: 'Poppins', sans-serif;
+}
+body * + * {
+  margin-top: 1.5em;
+}
+.bg-image {
+  object-fit: cover;
+  width: 100vw;
+  max-height: 40em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1080px;
+  position: relative;
+  top: 5em;
+}
+
+.center-container {
+  margin: 0 auto;
+}
+.site-nav {
+  font-size: 1.125rem;
+  display: flex;
+  list-style-type: none;
+  padding-left: 0;
+  position: relative;
+  top: 0;
+}
+.site-nav > li {
+  /* margin-top: -4.2em; */
+  margin-top: -4em;
+}
+
+.site-nav > li + li {
+  padding-left: 1em;
+}
+.site-nav > li > a {
+  text-decoration: none;
+  color: #8fe0f7;
+}
+.site-nav-right {
+  margin-left: auto;
+}
+
+main {
+  display: flex;
+  padding-top: 12em;
+}
+@media (min-width: 1800px) {
+  main {
+    padding-top: 15em;
+  }
+}
+.column-main {
+  flex: 2;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  margin-right: 5em;
+  color: rgb(232, 236, 240);
+}
+.column-main p {
+  color: rgb(187, 193, 197);
+}
+.column-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.login-form {
+  margin-top: 0;
+  display: block;
+}
+.login-form h3 {
+  margin: 0;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  text-align: right;
+}
+.login-form input:not([type='checkbox']):not([type='radio']) {
+  display: block;
+  width: 100%;
+  margin-top: 0;
+  background-color: #cacaca;
+  border: none;
+  height: 2rem;
+}
+
+.login-form button {
+  margin-top: 1em;
+  border: 1px solid #cc6b5a;
+  padding: 0.5em 2em;
+  background-color: #fff;
+  color: black;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+.tile {
+  background-color: #fff;
+  box-shadow: 10px 10px 15px #384a50, -10px -10px 15px #36616e;
+  padding: 1.5em;
+  border-radius: 30px;
+  margin-bottom: 2em;
+}
+.tile--pricing {
+  text-align: center;
+}
+.tile--pricing > small {
+  text-transform: uppercase;
+}
+
+.price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 0.6;
+}
+.price__currency {
+  font-size: 2rem;
+}
+.price__unit {
+  font-size: 4rem;
+}
+.price__fraction {
+  align-self: flex-start;
+  font-size: 0.8rem;
+}
+.cta__btn {
+  display: block;
+  background-color: #f57703;
+  color: aliceblue;
+  padding: 1em 2em;
+  text-decoration: none;
+  border-radius: 8px;
+}
+.price > span {
+  margin-top: 0;
+}

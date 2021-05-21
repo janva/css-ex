@@ -67,7 +67,11 @@ header > h1 {
   /* IE fix */
   display: block;
   float: left;
-  overflow: auto;
+  /* No longer  has any effect due to 
+    due to clearfix which doubles for 
+    no collapsing where not wanted 
+  */
+  /* overflow: auto; */
   width: 70%;
   padding: 0 1em 1em;
   border-radius: var(--border-radius);
