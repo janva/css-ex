@@ -6,7 +6,7 @@ for this exercise was not UI design but learning basics of flexbox :-).
 
 ## Short note on CSS versioning.
 W3C (world wide web consortium) is handling the specification of the CSS language. It use to be that they published sets of new features and changes under single version number such as CSS 2.0. The last in line was pushed out back in 2011 versioned as  CSS 2.1.
-More recent CSS has been broken down into modules which each have their own versions. W3C uses the term level to indicate different version of those modules. For instance a level 2 feature has evolved further from level 1.  Simply put the higher the level a feature has the further it has evolved. Flexbox layout module is a level 1 feature at time of writing. CSS3 is sometimes used as an informal version to mean certain modules of CSS that was introduced after CSS 2.1 in 2011.
+More recent CSS has been broken down into modules which each have their own versions. W3C uses the term level to indicate different version of those modules. For instance a level 2 feature has evolved further than level 1.  Simply put the higher the level a feature has the further it has evolved. Flexbox layout module is a level 1 feature at time of writing. CSS3 is sometimes used as an informal version to mean certain modules of CSS that was introduced after CSS 2.1 in 2011.
 
 ## Flex layout
 Is a layout mode intended for more complex webpage and application layouts.
