@@ -5,13 +5,21 @@ for this exercise was not UI design but learning basics of flexbox :-).
 ![layout](./img/readme/layout.png)
 
 ## Short note on CSS versioning.
-W3C (world wide web consortium) is handling the specification of the CSS language. It use to be that they published sets of new features and changes under single version number such as CSS 2.0. The last in line was pushed out back in 2011 versioned as  CSS 2.1.
-More recent CSS has been broken down into modules which each have their own versions. W3C uses the term level to indicate different version of those modules. For instance a level 2 feature has evolved further than level 1.  Simply put the higher the level a feature has the further it has evolved. Flexbox layout module is a level 1 feature at time of writing. CSS3 is sometimes used as an informal version to mean certain modules of CSS that was introduced after CSS 2.1 in 2011.
 
+W3C (world wide web consortium) is handling the specification of the CSS language. It use to be that they published sets of new features and changes under single version number such as CSS 2.0. The last in line was pushed out back in 2011 versioned as  CSS 2.1.
+More recent CSS has been broken down into modules which each have their own versions. W3C uses the term level to indicate different version of those modules. Modules that come from css2 got start at level 3. New features such as flexbox has only reached level 1   
+. Simply put the higher the level a feature has the further it has evolved. CSS3 is sometimes used as an informal version to mean certain modules of CSS that was introduced after CSS 2.1 in 2011.???
+W3C also use the term maturity level for it their recomandation track these can be summerized as first public working draft, working draft, candidate recommendation, proposed recommendation, W3C Recomandation and Amended recomadation. [TR= technical report]
+
+maturity levels 
+recomended are considered ready for implemations
 ## Flex layout
 Is a layout mode intended for more complex webpage and application layouts.
 To my understanding (from reading the W3C Candidate Recommendation, 19 November 2018)
-flex layout was introduced to get a flexible as well as more focused way of laying out content of pages. It circumvents some complexities of floats and columns and introduces alternative ways of handling content alignment and space distribution, drawing from box alignment module (justify-content, align-items, align-self, align-content). 
+flex layout was introduced to get a flexible as well as more focused way of laying out content of pages. It circumvents some complexities of floats and columns and
+TODO reread the part relating to the text below.
+and tries to simplify some common tasks of modern layouts....
+ alternative ways of handling content alignment and space distribution, drawing from box alignment module (justify-content, align-items, align-self, align-content). 
 
 The pre-existing layout 
 
@@ -34,11 +42,11 @@ Elements declared `display:flex` or `display:inline-flex` are  *flex-containers*
 
 ### Directions
 Directions in which flex-items are layed out works somewhat differently than other layout modes. Two axis are defined, the primary axis is called the *main axis* and a perpendicular axis called *cross axis*. The main-axis extends from main-start to main-end and cross-axis from cross-start to cross-end. Flex items are layed along the main-axis.
-how these map to physical directions are determined by flex-flow and writing mode. 
+How these map to physical directions are determined by flex-flow and writing mode. 
 
 image goes here
 
-#### flex-direction property
+#### Flex-direction property
 Will set the direction of main-axis thus determining in which direction flex items are layed out. The direction is also dependent on writing mode. Writing mode is used to support international writing modes. Using english we get the following 
 
 `flex-direction: row`
@@ -78,14 +86,37 @@ Specifies a flex shrink factor. It determines at what rate item will shrink in r
 
 flex-basis is first calculated before remaining space is distributed by flex-grow and flex-shrink. We can use auto margins to absorb extra space. This can be useful if we want to push some item(s) in some direction. Spacing is applied after margins and flex-grow values are calculated so item having flex-grow none-zero value or auto margin will grow to fill remaining space thus justify-content will have no effect.  
 
-## Alignment & spacing 
+## Alignment & spacing
+Alignment within flex container is applied after flex has finalized it work. That is when sizes have been calculated and space has been distributed among the different items.
+
+Normal margin is applicable is applicable for some alignment tasks (but more powerful).
+Box aligment propreties are also respected in flex layouts.
+
+#### Auto margins
+While flex bases and flexible length are calculated auto margins are treated as being 0. After sizes have been calculated  auto margins absorb and distribute remaining space.
+The consequence of all this is basically that using auto margin or flex-grow will circumvent alignment properties justify-content and align-self as all free space has already been consumed at this point. These will thus in such cases have any effect what so ever.
+
+Another gotcha using auto marigins is tha when boxes  overflows they will ignore auto margins and just overflow its end. The effect of this can be seen in following image
+![auto layout vs align-self](./img/readme/auto-margin.png)
+
+In image on the left auto-margins has been used attempting to center items. On the right the align-self property has been used. As we can see when using margin overflowed items will ignore centering and behave as 
+
 Once content is broken into lines, each line is laid out independently; flexible lengths and the justify-content and align-self properties only consider the items on a single line at a time.
 
  a single-line flex container, the cross size of the line is the cross size of the flex container, and align-content has no effect. 
 
-[using auto margin
-](https://www.w3.org/TR/css-flexbox-1/#item-margins)
+[using auto margin](https://www.w3.org/TR/css-flexbox-1/#item-margins)
 
+## Alignment properties
+justify-content, align-items, align-content are applied onto flex-container and align-self is applied onto items. Justify-content is applied to main-axis. Align-items and Align-self is applied to cross-axis.
+
+### justify content
+aligns flexitems along main axis this can take on the values `flex-start`, `flex-end`, `center`, `space-between`, `space-around` and `space-evenly`. The three first just pack all the items at start, center or end along the main axis. The two last distributes the remain spain between the items. The difference between the two being that space-around adds space before first item and after last item whereas space between only adds space between elements. Space-evenly distributes space between items so that there is same amount of space between any two items.
+
+### Align-items
+The aligns items works along the cross-axis and is applied to all items in flex-container.It takes the values  `flex-start`, `flex-end`, `center`,  `stretch` and `baseline`. The flex-start, flex-end and center, work in similar fashion as justify-content but along cross-axis.The stretch will stretch item to the cross-end.
+
+### Align-self
 [css tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 [w3c ](https://www.w3.org/TR/css-flexbox-1/)
 
