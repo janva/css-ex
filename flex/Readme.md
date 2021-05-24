@@ -4,15 +4,39 @@ for this exercise was not UI design but learning basics of flexbox :-).
 
 ![layout](./img/readme/layout.png)
 
-## Short note on CSS versioning.
+## A note on CSS versioning.
 
-W3C (world wide web consortium) is handling the specification of the CSS language. It use to be that they published sets of new features and changes under single version number such as CSS 2.0. The last in line was pushed out back in 2011 versioned as  CSS 2.1.
-More recent CSS has been broken down into modules which each have their own versions. W3C uses the term level to indicate different version of those modules. Modules that come from css2 got start at level 3. New features such as flexbox has only reached level 1   
-. Simply put the higher the level a feature has the further it has evolved. CSS3 is sometimes used as an informal version to mean certain modules of CSS that was introduced after CSS 2.1 in 2011.???
+W3C (world wide web consortium) is handling the specification of the CSS language.
+CSS over the years has changed the way they publish changes to specifications. Now days are broken down into modules rather than a single monolithic specification. Each module has its own line of history which is indicated by its level and can in this way be publish changes independently of each other. Higher level has evolved from previous levels by refinement and adding features to it. 
+
+CSS3 is just informal version which doesn't really reflect how specifications versions work these days.
+
+The workgroup publishes a separate document called snapshot intended for software makers to indicate which modules and features are considered stable and should be implemented. 
+Feature being mentioned in snapshot are neither any guarantee all such features being correclty implemented or features being frozen.Some parts are in this document may still be at W3C candidate recommendation maturity level.
+
+In addition W3C indicates stability and status of document by using following vocabulary which i briefly try to explain somewhat informally what the mean.
+Working draft (WD)
+Is used for drafting specifications these are used to get input from public as well as W3C. It's not considered stable and may be incomplete
+Candidate Recomendation(CR)
+Is used is used by working group to signal that specification is ready for implementation. It's considered complete and know issues have been resolved.
+Proposed Recommendation(PR)
+All features have been tested comprehensivally ie have a comprehensive testsuite.
+"implementation reports proving that every feature is interoperably implemented in at least two shipping implementations. W3C Members are asked to review the specification one last time." 
+
+Recommendation (REC)
+    final standard and should not elicit any more changes. But can become obsolete 
+
+Document are often published as a TR which is short for Technical Report.
+These are the major ones but there are more if you like to dig deeper.
+
+[The CSS standardization process](https://www.w3.org/Style/2011/CSS-process)
+
+https://www.w3.org/Style/CSS/current-work
+
+
 W3C also use the term maturity level for it their recomandation track these can be summerized as first public working draft, working draft, candidate recommendation, proposed recommendation, W3C Recomandation and Amended recomadation. [TR= technical report]
 
-maturity levels 
-recomended are considered ready for implemations
+
 ## Flex layout
 Is a layout mode intended for more complex webpage and application layouts.
 To my understanding (from reading the W3C Candidate Recommendation, 19 November 2018)
