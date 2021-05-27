@@ -6,10 +6,10 @@ for this exercise was not UI design but learning basics of flexbox :-).
 
 ## A note on CSS versioning.
 Before you read the following do know that I'm talking about speciations below. Specifications are not manuals. Even if the CSS specifications contain a lot of 
-interesting and useful material they are not so much intended for end user of CSS 
-be used at their daily work. For instance [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) will probably serve you better if you are looking for a manual.Implementors of CSS will on the other hand will find specifications invaluable. I don't usually spend days at end reading specs but every now and than some twisted part of my brain gets activated and takes me down one of these rabbit holes :-). 
+interesting and useful material they are not so much intended for end user of CSS to
+be used at their daily work. For instance [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) will probably serve you better if you are looking for a manual.Implementors of CSS  on the other hand will find specifications invaluable. I don't usually spend days at end reading specifications but every now and than some twisted part of my brain gets activated and takes me down one of these rabbit holes :-). 
 
-Specifications put a lot of emphasis on vocabulary. For instance verbs as shall, must and should are have formal and well defined meaning. The text here in just consists of words by a humble man trying to make sense of things :-).
+Specifications put a lot of emphasis on vocabulary. For instance verbs as shall, must and should have formal and well defined meaning. In contrast the text herein just consists of words by a humble man trying to make sense of things :-).
 
 W3C (world wide web consortium) is handling the specification of the CSS language.
 CSS over the years has changed the way they publish changes to specifications. Now days the CSS specification is broken down into modules rather than a single monolithic document. Each module has its own line of history. How far a single module has evolved from it's origin is indicated by its level. So,  higher level modules have evolved from previous levels by refinement and by adding features to them. Breaking down the specification into modules allows changes to be published independently of each other. 
