@@ -5,36 +5,24 @@ for this exercise was not UI design but learning basics of flexbox :-).
 ![layout](./img/readme/layout.png)
 
 ## A note on CSS versioning.
+Before you read the following do know that I'm talking about speciations below. Specifications are not manuals. Even if the CSS specifications contain a lot of 
+interesting and useful material they are not so much intended for end user of CSS 
+be used at their daily work. For instance [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) will probably serve you better if you are looking for a manual.Implementors of CSS will on the other hand will find specifications invaluable. I don't usually spend days at end reading specs but every now and than some twisted part of my brain gets activated and takes me down one of these rabbit holes :-). 
+
+Specifications put a lot of emphasis on vocabulary. For instance verbs as shall, must and should are have formal and well defined meaning. The text here in just consists of words by a humble man trying to make sense of things :-).
 
 W3C (world wide web consortium) is handling the specification of the CSS language.
-CSS over the years has changed the way they publish changes to specifications. Now days are broken down into modules rather than a single monolithic specification. Each module has its own line of history which is indicated by its level and can in this way be publish changes independently of each other. Higher level has evolved from previous levels by refinement and adding features to it. 
+CSS over the years has changed the way they publish changes to specifications. Now days the CSS specification is broken down into modules rather than a single monolithic document. Each module has its own line of history. How far a single module has evolved from it's origin is indicated by its level. So,  higher level modules have evolved from previous levels by refinement and by adding features to them. Breaking down the specification into modules allows changes to be published independently of each other. 
+Even thou the way specifications are versioned we still see CSS3 used  as an informal version but it doesn't really reflect how specification versioning work these days.
 
-CSS3 is just informal version which doesn't really reflect how specifications versions work these days.
+In  addition to levels W3C indicates stability and status of document by using following common vocabulary Working Draft (WD),Candidate Recommendation(CR),Proposed Recommendation(PR) and RECommendation (REC). CR is signals a call for implementation. This is when the work group have enough confidence in document to say that they consider it to complete enough to be tested in practice. At this stage their shall not be any more known unresolved issues. For the other codes I will refer you to 
+[the CSS standardization process](https://www.w3.org/Style/2011/CSS-process). It is a short document and useful read. Specification documents are  published as Technical Report(TR). 
 
-The workgroup publishes a separate document called snapshot intended for software makers to indicate which modules and features are considered stable and should be implemented. 
-Feature being mentioned in snapshot are neither any guarantee all such features being correclty implemented or features being frozen.Some parts are in this document may still be at W3C candidate recommendation maturity level.
+The workgroup publishes a separate document  called snapshot intended for software makers to indicate which modules and features are considered stable and should be implemented. 
+Features being mentioned in snapshot are neither any guarantee for features being correctly implemented or features being frozen.Some parts in snapshot document may still be at W3C candidate recommendation maturity level.
 
-In addition W3C indicates stability and status of document by using following vocabulary which i briefly try to explain somewhat informally what the mean.
-Working draft (WD)
-Is used for drafting specifications these are used to get input from public as well as W3C. It's not considered stable and may be incomplete
-Candidate Recomendation(CR)
-Is used is used by working group to signal that specification is ready for implementation. It's considered complete and know issues have been resolved.
-Proposed Recommendation(PR)
-All features have been tested comprehensivally ie have a comprehensive testsuite.
-"implementation reports proving that every feature is interoperably implemented in at least two shipping implementations. W3C Members are asked to review the specification one last time." 
-
-Recommendation (REC)
-    final standard and should not elicit any more changes. But can become obsolete 
-
-Document are often published as a TR which is short for Technical Report.
-These are the major ones but there are more if you like to dig deeper.
-
-[The CSS standardization process](https://www.w3.org/Style/2011/CSS-process)
-
-https://www.w3.org/Style/CSS/current-work
-
-
-W3C also use the term maturity level for it their recomandation track these can be summerized as first public working draft, working draft, candidate recommendation, proposed recommendation, W3C Recomandation and Amended recomadation. [TR= technical report]
+So that was a tiny glimpse of CSS version. If you like to read some of the specifications then maybe following link can be to avail  
+[css specifications](https://www.w3.org/Style/CSS/current-work).
 
 
 ## Flex layout
@@ -148,9 +136,10 @@ Align-self overides align-items values per item. It pretty much works as align-i
 Aligns container lines within flex container when there is extra space in the cross axis. This property does not work on single content.
 This works similar to justify content but in cross-axis direction on wrapped content. Valid values are `flex-start`, `center`, `flex-end`, `space-between`, `space-around`, and `stretch`
 
+# Links
+[MDN web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox).
 
-[css tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+[css tricks complete guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
 
-[w3c ](https://www.w3.org/TR/css-flexbox-1/)
+[w3c flexible box layout specification ](https://www.w3.org/TR/css-flexbox-1/).
 
-[MDN web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
