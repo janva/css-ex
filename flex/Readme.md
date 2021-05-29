@@ -5,33 +5,29 @@ for this exercise was not UI design but learning basics of flexbox :-).
 ![layout](./img/readme/layout.png)
 
 ## A note on CSS versioning.
-Before you read the following do know that I'm talking about speciations below. Specifications are not manuals. Even if the CSS specifications contain a lot of 
-interesting and useful material they are not so much intended for end user of CSS to
-be used at their daily work. For instance [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) will probably serve you better if you are looking for a manual.Implementors of CSS  on the other hand will find specifications invaluable. I don't usually spend days at end reading specifications but every now and than some twisted part of my brain gets activated and takes me down one of these rabbit holes :-). 
+Before you read the following do know that I'm talking about speciations below. Specifications are not manuals. Even if the CSS specifications contain a lot of interesting and useful material they are not so much intended for end user of CSS to
+be used at their daily work. For instance [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) will probably serve you better if you are looking for a manual.Implementors of CSS  on the other hand will find specifications invaluable. I don't usually spend days at end reading specifications but every now and than some twisted part of my brain gets activated and takes me down one of these rabbit holes. 
 
-Specifications put a lot of emphasis on vocabulary. For instance verbs as shall, must and should have formal and well defined meaning. In contrast the text herein just consists of words by a humble man trying to make sense of things :-).
+Specifications put a lot of emphasis on vocabulary. For instance verbs as shall, must and should have formal and well defined meaning. In contrast the text herein just consists of words by a humble man trying to make sense of things.
 
-W3C (world wide web consortium) is handling the specification of the CSS language.
-CSS over the years has changed the way they publish changes to specifications. Now days the CSS specification is broken down into modules rather than a single monolithic document. Each module has its own line of history. How far a single module has evolved from it's origin is indicated by its level. So,  higher level modules have evolved from previous levels by refinement and by adding features to them. Breaking down the specification into modules allows changes to be published independently of each other. 
-Even thou the way specifications are versioned we still see CSS3 used  as an informal version but it doesn't really reflect how specification versioning work these days.
+W3C (world wide web consortium) is handling the specification of the CSS language. CSS  has changed the way they publish changes to specifications over the years. Now days the CSS specification is broken down into modules rather than a single monolithic document. Each module has its own line of history. How far a single module has evolved from it's origin is indicated by its level. So, higher level  modules have evolved from previous levels by refinement and by adding features to them. Breaking down the specification into modules allows changes to be published independently of each other. 
+We still see CSS3 used in different places as an informal version but it doesn't really reflect how specification versioning work these days.
 
-In  addition to levels W3C indicates stability and status of document by using following common vocabulary Working Draft (WD),Candidate Recommendation(CR),Proposed Recommendation(PR) and RECommendation (REC). CR is signals a call for implementation. This is when the work group have enough confidence in document to say that they consider it to complete enough to be tested in practice. At this stage their shall not be any more known unresolved issues. For the other codes I will refer you to 
-[the CSS standardization process](https://www.w3.org/Style/2011/CSS-process). It is a short document and useful read. Specification documents are  published as Technical Report(TR). 
+In  addition to levels W3C indicates stability and status of document by using following common vocabulary Working Draft (WD),Candidate Recommendation(CR),Proposed Recommendation(PR) and RECommendation (REC). CR signals a call for implementation. This happens when the work group have enough confidence in document to say that they consider it to complete enough to be tested in practice. At this stage their shall not be any more known unresolved issues. For more information on the other other stability levels see  [the CSS standardization process](https://www.w3.org/Style/2011/CSS-process). It is a short document and useful read. Specification documents are  published as Technical Report(TR). 
 
 The workgroup publishes a separate document  called snapshot intended for software makers to indicate which modules and features are considered stable and should be implemented. 
 Features being mentioned in snapshot are neither any guarantee for features being correctly implemented or features being frozen.Some parts in snapshot document may still be at W3C candidate recommendation maturity level.
 
-So that was a tiny glimpse of CSS version. If you like to read some of the specifications then maybe following link can be to avail  
-[css specifications](https://www.w3.org/Style/CSS/current-work).
+So that was a tiny glimpse of CSS version. If you like to read some of the specifications then maybe following link can avail  
 
+[css specifications](https://www.w3.org/Style/CSS/current-work).
 
 ## Flex layout
 Is a layout mode intended for more complex webpage and application layouts.
 To my understanding (from reading the W3C Candidate Recommendation, 19 November 2018)
-flex layout was introduced to get a flexible as well as more focused way of laying out content of pages. It circumvents some complexities of floats and columns and
-TODO reread the part relating to the text below.
-and tries to simplify some common tasks of modern layouts....
- alternative ways of handling content alignment and space distribution, drawing from box alignment module (justify-content, align-items, align-self, align-content). 
+flex layout was introduced to get a flexible as well as more focused way of laying out content of pages. It rids of some complexities of block layout and provides simple yet powerful tools for distributing space  and aligning content in ways that are more in line with modern web applications layouts.Flex layout draws some of these properties from box alignment module (justify-content, align-items, align-self, align-content).
+Flex boxes creates a flex formatting context (basically same as a bfc) which contains the effect of the layout within its element. ((((((((TODO may contrast flexbox with other layouts to clearify the things are better this way Positioned layout  no regard for other element))))))) some block container properties are not applicable in flex layout context for instance float, clear, vertical-align ,::first-line, ::first-letter. Often common design pattern can be simplified with the use of flex layout. 
+
 
 The pre-existing layout 
 
@@ -42,59 +38,68 @@ positioned layout. Not part of normal document flow decoupled from other element
 
 (TODO think this through Some of the older techniques are centered around other concepts such as text or document-centric concepts.)
 
-Flex boxes creates a flex formatting context (basically same as bfc) which contains the effect of the layout within its element.
-some block container properties are not applicable in flex layout context
-float, clear, vertical-align ,::first-line, ::first-letter 
 
 ## Basic concepts
-Flexbox is in some sense single dimensioned but can can be nested to create even more complex layouts. What I see people recommend is to use for simple small scaled layout in single direction and use grid instead things becomes more complex and large scale. Flex layout module introduced 12 properties (including shorthands) which is a fair bit of things to keep track of. Below I try to introduce basics to get going and as hopefully not to over complicate things.
+Flexbox is in some sense single dimensioned layout tool. It allows for content wrapping but whilst doing so each line will be laid out independently and there is at least no simple way of aligning content in one row followed by another row.
+Working in single dimension does not prevent flexbox from being  agnostic about directions of how items are layed out. You can layout items horizontally or vertically to your liking. If you want to create more complex layouts with flexbox you can nest a flexbox within another. Flexbox works from content out. Items are layed out in rows or columns after which an algorithm will determine sizes, spacing and distributing space used by each item. Explicit sizes of items are not necessarily needed. What I see people recommend is to use it for simple or small scaled layout in single direction when working with flexbox and use grid instead when things becomes more complex and large scale. This makes sense to me after reading the above.
+
+ Flex layout module introduced 12 properties (including shorthands) which is a fair bit of things to keep track of. Following is a short introduction to some of the properties. 
 
 ### Flex container & its items
 Elements declared `display:flex` or `display:inline-flex` are  *flex-containers*. Direct children's of such an element are *flex-items* and layed out according to flex layout box model.
 
 ### Directions
 Directions in which flex-items are layed out works somewhat differently than other layout modes. Two axis are defined, the primary axis is called the *main axis* and a perpendicular axis called *cross axis*. The main-axis extends from main-start to main-end and cross-axis from cross-start to cross-end. Flex items are layed along the main-axis.
-How these map to physical directions are determined by flex-flow and writing mode. 
+How these map to physical directions are determined by flex-flow and writing mode.  
 
 image goes here
 
 #### Flex-direction property
-Will set the direction of main-axis thus determining in which direction flex items are layed out. The direction is also dependent on writing mode. Writing mode is used to support international writing modes. Using english we get the following 
+Will set the direction of main-axis thus determining in which direction flex items are layed out. The direction is also dependent on writing mode. Writing mode is used to support international writing modes. The values i mostly use are. 
 
 `flex-direction: row`
-main axis follows inline axis which in our case would be horizontal axis left to right.
-`flex-direction: column`
-Same direction as your block axis, in our case the vertical axis top to bottom. 
+: main axis follows inline axis which in my case would be horizontal axis left to right.
 
-The reversed directions of the above are also available if you have a need for that. These are the `row-reverse` and `column-reverse` 
+`flex-direction: column` 
+: Same direction as your block axis, in my case the vertical axis top to bottom. 
+
+The reversed directions of the above are also available  through `row-reverse` and `column-reverse` if in case you have such needs.
+
 #### Wrapping items
-FLex-wrap determine if flex container should be layed out in single flex-line or in several flex-lines. If an item  wrap it will be stacked along flex containers cross-axis.
+FLex-wrap determine if flex container should be layed out in single flex-line or in several flex-lines. Normally items do their best to fit on single line. Flex wrap allows you to change this behavior. In case an item  wraps it will be stacked along flex containers cross-axis. Short description of values below.
+
 `flex-wrap: no-wrap` 
-    single line no wrapping.
+: single line no wrapping.
+
 `flex-wrap: wrap` 
-    wrap onto multiple lines (in cross axis direction)
+: wrap onto multiple lines (in cross axis direction)
+
 `flex-wrap: wrap-reverse` 
-    wrap onto multiple lines (in cross axis reversed direction swapping the cross-start and cross-end)
+: wrap onto multiple lines (in cross axis reversed direction swapping the cross-start and cross-end)
 
 #### Direction and wrapping shorthand
-Flex-flow is just a shorthand for flex-direction and flex-wrap
-default values for this short-hand is code row and nowrap. We could for instance do
-```css
-flex-flow: column wrap;
-```
-to set main-axis to column and to allow wrapping.
+Flex-flow is just a shorthand for flex-direction and flex-wrap. Valid values are hence same as flex-direction and flex-wrap. Default values for this short-hand is code row and nowrap.
+
+`flex-flow`
+: <'flexdirection'>||<'flex-wrap'>;
 
 ## Flexible Sizes
-Flex items are able to alter their width/height  (to flex) as to fill available space in the main dimension(TODO Have not defined term maybe choose other wording). The flex property controls the sizes along main axis direction. The flex property is shorthand for `flex-grow`, `flex-shrink` and `flex-basis` properties. These can be used as individual properties but the recommendation is use the shorthand. unless `flex-grow`, `flex-shrink` are set to 0 items will fill remaining space. If they are set to 0 items will be fully inflexible. These properties are set on the flex-items them self. 
+Flex items are able to alter their width/height  (to flex) as to fill available space in the main dimension. The flex property controls the sizes along main axis direction. The flex property is shorthand for `flex-grow`, `flex-shrink` and `flex-basis` properties. These can be used as individual properties but the recommendation is use the shorthand. unless `flex-grow`, `flex-shrink` are set to 0 items will fill remaining space. If they are set to 0 items will be fully inflexible. These properties are set on the flex-items them self. 
 
 `flex-grow`
-    Specifies a flex grow factor. It determines at what rate item will grow in relation to other items when distributing remaining space. The default value is 1. No negative number are allowed.
+: Specifies a flex grow factor. It determines at what rate item will grow in relation to other items when distributing remaining space. The default value is 1. No negative number are allowed.
+
 `flex-shrink`
-Specifies a flex shrink factor. It determines at what rate item will shrink in relation to other items if necessary. This can occur after space has been distributed in situation where sizes become larger then it's flex container. The default is 1.No negative number are allowed.
+: Specifies a flex shrink factor. It determines at what rate item will shrink in relation to other items if necessary. This can occur after space has been distributed in situation where sizes become larger then it's flex container. The default is 1.No negative number are allowed.
+
 `flex-basis`
-    Specifiec the initial main size  of flex-item, before remaining free space has been distributed. Values can be same as `width` and `height` properties but `auto` and `content` get some special treatment. `auto` uses the `main size`  width and height property to determine base size. `content` set size automatically based on flex item's content, be ware this might not be supported in your browser. 
+:  Specifiec the initial main size  of flex-item, before remaining free space has been distributed. Values can be same as `width` and `height` properties but `auto` and 
+
+`content`
+: get some special treatment. `auto` uses the `main size`  width and height property to determine base size. `content` set size automatically based on flex item's content, be ware this might not be supported in your browser. 
+
 `none` 
-    is equivalent to 0 0 auto. 
+: is equivalent to 0 0 auto. 
 
 flex-basis is first calculated before remaining space is distributed by flex-grow and flex-shrink. We can use auto margins to absorb extra space. This can be useful if we want to push some item(s) in some direction. Spacing is applied after margins and flex-grow values are calculated so item having flex-grow none-zero value or auto margin will grow to fill remaining space thus justify-content will have no effect.  
 
