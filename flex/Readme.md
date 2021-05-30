@@ -82,30 +82,30 @@ Flex-flow is just a shorthand for flex-direction and flex-wrap. Valid values are
 : <'flexdirection'>||<'flex-wrap'>;
 
 ## Flexible Sizes
-Flex items are able to alter their width/height  (to flex) as to fill available space in the main dimension. The flex property controls the sizes along main axis direction. The flex property is shorthand for `flex-grow`, `flex-shrink` and `flex-basis` properties. These can be used as individual properties but the recommendation is use the shorthand. unless `flex-grow`, `flex-shrink` are set to 0 items will fill remaining space. If they are set to 0 items will be fully inflexible. These properties are set on the flex-items them self. 
+Flex items are able to alter their width/height  (to flex) as to fill available space in the main dimension. The 
+flex properties controls the sizes along main axis direction. The `flex` property is shorthand for `flex-grow`, `flex-shrink` and `flex-basis` properties. These can be used as individual properties but the recommendation is use the shorthand. unless `flex-grow`, `flex-shrink` are set to 0 items will fill remaining space. If they are set to 0 items will be fully inflexible. These properties are set on the flex-items them self. 
 
-`flex-grow`
+`flex-grow:<number>`
 : Specifies a flex grow factor. It determines at what rate item will grow in relation to other items when distributing remaining space. The default value is 1. No negative number are allowed.
-<dl>
-<dt>flex-shrink</dt>
-<dd> Specifies a flex shrink factor. It determines at what rate item will shrink in relation to other items if necessary. This can occur after space has been distributed in situation where sizes become larger then it's flex container. The default is 1. No negative number are allowed.
-</dd>
-</dl>
 
-`flex-basis`
-:  Specifiec the initial main size  of flex-item, before remaining free space has been distributed. Values can be same as `width` and `height` properties but `auto` and 
+`flex-shrink:<number>`
+: Specifies a flex shrink factor. It determines at what rate item will shrink in relation to other items if necessary. This can occur after space has been distributed in situation where sizes become larger then it's flex container. The default is 1.No negative number are allowed.
+Shrink does not apply if wrapping is active.
 
-`content`
-: get some special treatment. `auto` uses the `main size`  width and height property to determine base size. `content` set size automatically based on flex item's content, be ware this might not be supported in your browser. 
+`flex-basis:<'width'>`
+:  Specifiec the initial main size  of flex-item, before remaining free space has been distributed. Values can be same as `width` , `height` plus the value `content`  properties but `auto` and  `content`
+ get some special treatment. `auto` uses the `main size`  width and height property to determine base size. `content` set size automatically based on flex item's content, be ware this might not be supported in your browser. 
 
-`none` 
-: is equivalent to 0 0 auto. 
+`flex : <'flex-grow'><'flex-shrink'><'flex-basis'>`
+ : shortand property for above three properties. In addition we can set flex value to `none`. This is  
+  is equivalent to setting  values to  0 0 auto. 
 
-flex-basis is first calculated before remaining space is distributed by flex-grow and flex-shrink. We can use auto margins to absorb extra space. This can be useful if we want to push some item(s) in some direction. Spacing is applied after margins and flex-grow values are calculated so item having flex-grow none-zero value or auto margin will grow to fill remaining space thus justify-content will have no effect.  
+flex-basis is calculated before remaining space is distributed by flex-grow and flex-shrink.  Auto margins can be used to absorb extra space. This can be useful if we want to push some item(s) in some direction. Spacing is applied after margins and flex-grow values are calculated so item having flex-grow none-zero value or auto margin will grow to fill remaining space thus justify-content will have no effect in such cases.  
 
 ## Alignment & spacing
 Alignment within flex container is applied after flex has finalized it work. That is when sizes have been calculated and space has been distributed among the different items. Before going into flex specific properties lets take glimpse at how the ordinary auto margin work together with flexbox. 
 
+Box aligment propreties are also respected in flex layouts.
 #### Auto margins
 Auto margins can be used inside flex container. Take a look at the navigation links in following image.
 ![pushing item right with auto margin](./img/readme/flexautomargin.png)
