@@ -70,8 +70,7 @@ The inner display type of both are of type flex-container.These generate  flex f
 Directions in which flex-items are layed out works somewhat differently than other layout modes. Two axis are defined, the primary axis is called the *main axis* and a perpendicular axis called *cross axis*. The main-axis extends from main-start to main-end and cross-axis from cross-start to cross-end. Flex items are layed along the main-axis.
 How these map to physical directions are determined by flex-flow and writing mode.  
 
-image goes here
-
+![alt](img/readme/axis.svg)
 ### Flex-direction property
 Will set the direction of main-axis thus determining in which direction flex items are layed out. The direction is also dependent on writing mode. Writing mode is used to support international writing modes. The values i mostly use are. 
 
