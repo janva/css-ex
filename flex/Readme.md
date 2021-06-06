@@ -1,10 +1,33 @@
+
 # Getting basics of flexbox
+- [Getting basics of flexbox](#getting-basics-of-flexbox)
+- [The layout](#the-layout)
+- [A side note on CSS versioning.](#a-side-note-on-css-versioning)
+- [Flex layout](#flex-layout)
+  - [When to use](#when-to-use)
+  - [Basic concepts](#basic-concepts)
+  - [Flex container & its items](#flex-container--its-items)
+  - [Directions](#directions)
+    - [Flex-direction property](#flex-direction-property)
+    - [Wrapping items](#wrapping-items)
+    - [Direction and wrapping shorthand](#direction-and-wrapping-shorthand)
+  - [Flexible Sizes](#flexible-sizes)
+  - [Alignment & spacing](#alignment--spacing)
+    - [Auto margins](#auto-margins)
+    - [Alignment properties](#alignment-properties)
+    - [justify content](#justify-content)
+    - [Align-items](#align-items)
+    - [Align-self](#align-self)
+    - [Align-content (multiline alignment)](#align-content-multiline-alignment)
+- [Links](#links)
+
+# The layout
 So this is another two column layout. There are a few imperfections to the layout, luckily the focus 
 for this exercise was not UI design but learning basics of flexbox :-). 
 
 ![layout](./img/readme/layout.png)
 
-## A note on CSS versioning.
+# A side note on CSS versioning.
 Before you read the following do know that I'm talking about speciations below. Specifications are not manuals. Even if the CSS specifications contain a lot of interesting and useful material they are not so much intended for end user of CSS to
 be used at their daily work. For instance [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) will probably serve you better if you are looking for a manual.Implementors of CSS  on the other hand will find specifications invaluable. I don't usually spend days at end reading specifications but every now and than some twisted part of my brain gets activated and takes me down one of these rabbit holes. 
 
@@ -20,10 +43,13 @@ Features being mentioned in snapshot are neither any guarantee for features bein
 
 So that was a tiny glimpse into CSS version. If you like to read some of the specifications then maybe following link can avail  
 
-[css specifications](https://www.w3.org/Style/CSS/current-work).
+[CSS specifications](https://www.w3.org/Style/CSS/current-work).
 
-## Flex layout
-Is a layout mode intended for more complex webpage and application layouts. To my understanding (from reading the W3C Candidate Recommendation, 19 November 2018) flex layout was introduced as an extension to display property to get a flexible as well as more focused way of laying out content of pages (as opposed to documents). It rids of some complexities of block layouts and provides simple yet powerful tools for distributing space and aligning content in ways that are more in line with modern web application layouts. Flex layout draws some of these properties from box alignment module (justify-content, align-items, align-self, align-content).
+# Flex layout
+Is a layout mode intended for more complex webpage and application layouts. To my understanding (from reading the W3C Candidate Recommendation, 19 November 2018) flex layout was introduced as an extension to display property to get a flexible as well as more focused way of laying out content of pages (as opposed to documents). It rids of some complexities of block layouts and provides simple yet powerful tools for distributing space and aligning content in ways that are more in line with modern web application layouts. Flex layout draws some of these properties from box alignment module (justify-content, align-items, align-self, align-content). Some block container properties are not applicable in flex layout context for instance float, clear, vertical-align ,::first-line, ::first-letter. Often common design pattern can be simplified with the use of flex layout. 
+
+## When to use
+ What I see people recommend is to use it for simple or small scaled layout in single direction when working with flexbox and use grid instead when things becomes more complex and large scale. This makes sense both flex and grid have different strengths. Also grid and flex works nicely together when creating layouts.
 
 <!--
 CSS 2.1 provides block, inline, table and positioned layout modes. 
@@ -34,31 +60,22 @@ CSS 2.1 provides block, inline, table and positioned layout modes.
 ## Basic concepts
 Flexbox is in some sense single dimensioned layout tool. It allows for content wrapping but whilst doing so each line will be laid out independently and there is no simple way to aligning content in one row followed by another row. Working in single dimension does not prevent flexbox from being  agnostic about directions in which items are layed out. You can layout items horizontally or vertically to your liking. If you want to create more complex layouts with flexbox you can nest a flexbox within another. Flexbox works from content out. Items are layed out in rows or columns after which an algorithm will determine sizes, spacing and distribute space used by each item. Explicit sizes of items are not necessarily needed. 
 
- What I see people recommend is to use it for simple or small scaled layout in single direction when working with flexbox and use grid instead when things becomes more complex and large scale. This makes sense to me after reading the above.
+Flex layout module introduced 12 properties (including shorthands) which is a fair bit of things to keep track of. Following is a short introduction to some of the properties. 
 
-
-
- Flex layout module introduced 12 properties (including shorthands) which is a fair bit of things to keep track of. Following is a short introduction to some of the properties. 
-
-### Flex container & its items
+## Flex container & its items
 As mentioned, flexbox extends the display property. Display property, in it self,  defines inner and outer display types. The inner display property dictates decedents formatting context, ruling how decedents are laid out. Outer display dictates the principle box which governs how it interacts in the flow layout.
 In the case of flex-boxes the principle box is either inline or block-level and the formatting context is flex-container. In practice elements declared `display:flex` or `display:inline-flex` are  *flex-containers* and the decedents are called  *flex-items*.
 So flex-containers of type flex have block-level principle box and flex-containers of type inline of course have inline-level principle box. 
 The inner display type of both are of type flex-container.These generate  flex formatting contexts (similar to BFC). Items are layed out according to [flex layout  model]([https://link](https://www.w3.org/TR/css-flexbox-1/#box-model)).
 
 
-Some block container properties are not applicable in flex layout context for instance float, clear, vertical-align ,::first-line, ::first-letter. Often common design pattern can be simplified with the use of flex layout. 
-and the they are layed out according to flex box model. 
-
-
-
-### Directions
+## Directions
 Directions in which flex-items are layed out works somewhat differently than other layout modes. Two axis are defined, the primary axis is called the *main axis* and a perpendicular axis called *cross axis*. The main-axis extends from main-start to main-end and cross-axis from cross-start to cross-end. Flex items are layed along the main-axis.
 How these map to physical directions are determined by flex-flow and writing mode.  
 
 image goes here
 
-#### Flex-direction property
+### Flex-direction property
 Will set the direction of main-axis thus determining in which direction flex items are layed out. The direction is also dependent on writing mode. Writing mode is used to support international writing modes. The values i mostly use are. 
 
 `flex-direction: row`
@@ -69,7 +86,7 @@ Will set the direction of main-axis thus determining in which direction flex ite
 
 The reversed directions of the above are also available  through `row-reverse` and `column-reverse` if in case you have such needs.
 
-#### Wrapping items
+### Wrapping items
 FLex-wrap determine if flex container should be layed out in single line (single-line flex container) or in several lines (multi-line flex container). Normally items do their best to fit on single line. Flex wrap allows you to change this behavior. In case an item  wraps it will be stacked along flex containers cross-axis. If wrapping occurs each line is layed out independently. In effect flexible lengths, justify content and align-self will be applied onto each line of items separately. Also notice that align-content only applies to multiline flex containers. That is it has no effect on single-line flex containers. Lets have a quick overview of some properties.
 
 `flex-wrap: no-wrap` 
@@ -81,7 +98,7 @@ FLex-wrap determine if flex container should be layed out in single line (single
 `flex-wrap: wrap-reverse` 
 : wrap onto multiple lines in cross axis reversed direction swapping the cross-start and cross-end
 
-#### Direction and wrapping shorthand
+### Direction and wrapping shorthand
 Flex-flow is just a shorthand for flex-direction and flex-wrap. Valid values are hence same as flex-direction and flex-wrap. Default values for this short-hand is code row and nowrap.
 
 `flex-flow`
@@ -112,7 +129,8 @@ flex-basis is calculated before remaining space is distributed by flex-grow and 
 Alignment within flex container is applied after flex has finalized it work. That is when sizes have been calculated and space has been distributed among the different items. Before going into flex specific properties lets take glimpse at how the ordinary auto margin work together with flexbox. 
 
 Box aligment propreties are also respected in flex layouts.
-#### Auto margins
+
+### Auto margins
 Auto margins can be used inside flex container. Take a look at the navigation links in following image.
 ![pushing item right with auto margin](./img/readme/flexautomargin.png)
 The about link has been pushed to right and the rest of the links are group to left. This was achieved simply by applying `margin-left:auto` to about item which sits inside a flex container. This was  all it took to achieve the layout of  main navigation.But there are some things we need to be aware of when working with auto-margins and flexbox. One gotcha using auto margins arise  when boxes  overflow. In such cases auto margins are just ignored. The effect of this can be seen in following image.
@@ -123,7 +141,7 @@ Left images uses  auto-margins  attempting to center items. On the right the ali
 
 While flex basis and flexible length are calculated auto margins are treated as being 0. After sizes have been calculated remaining space distributed to auto margins and thus absorbed. The consequence of all this is basically that using positive auto margin or flex-grow  will circumvent alignment properties justify-content and align-self as all free space has already been consumed at this point. These will thus in such cases have any effect what so ever.
 
-## Alignment properties
+### Alignment properties
 justify-content, align-items, align-content are applied onto flex-container and align-self is applied onto items. Justify-content is applied to main-axis. Align-items and Align-self is applied to cross-axis. these are all single-line alignment properties. There's a separate property named align-content to handle alignment of multiline content.
 
 ### justify content
