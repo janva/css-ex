@@ -4,7 +4,6 @@
 - [The layout](#the-layout)
 - [A side note on CSS versioning.](#a-side-note-on-css-versioning)
 - [Flex layout](#flex-layout)
-  - [When to use](#when-to-use)
   - [Basic concepts](#basic-concepts)
   - [Flex container & its items](#flex-container--its-items)
   - [Directions](#directions)
@@ -48,8 +47,6 @@ So that was a tiny glimpse into CSS version. If you like to read some of the spe
 # Flex layout
 Is a layout mode intended for more complex webpage and application layouts. To my understanding (from reading the W3C Candidate Recommendation, 19 November 2018) flex layout was introduced as an extension to display property to get a flexible as well as more focused way of laying out content of pages (as opposed to documents). It rids of some complexities of block layouts and provides simple yet powerful tools for distributing space and aligning content in ways that are more in line with modern web application layouts. Flex layout draws some of these properties from box alignment module (justify-content, align-items, align-self, align-content). Some block container properties are not applicable in flex layout context for instance float, clear, vertical-align ,::first-line, ::first-letter. Often common design pattern can be simplified with the use of flex layout. 
 
-## When to use
- What I see people recommend is to use it for simple or small scaled layout in single direction when working with flexbox and use grid instead when things becomes more complex and large scale. This makes sense both flex and grid have different strengths. Also grid and flex works nicely together when creating layouts.
 
 <!--
 CSS 2.1 provides block, inline, table and positioned layout modes. 
