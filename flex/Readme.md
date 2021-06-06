@@ -10,41 +10,47 @@ be used at their daily work. For instance [MDN Web Docs](https://developer.mozil
 
 Specifications put a lot of emphasis on vocabulary. For instance verbs as shall, must and should have formal and well defined meaning. In contrast the text herein just consists of words by a humble man trying to make sense of things.
 
-W3C (world wide web consortium) is handling the specification of the CSS language. CSS  has changed the way they publish changes to specifications over the years. Now days the CSS specification is broken down into modules rather than a single monolithic document. Each module has its own line of history. How far a single module has evolved from it's origin is indicated by its level. So, higher level  modules have evolved from previous levels by refinement and by adding features to them. Breaking down the specification into modules allows changes to be published independently of each other. 
-We still see CSS3 used in different places as an informal version but it doesn't really reflect how specification versioning work these days.
+W3C (world wide web consortium) is handling the specification of the CSS language. CSS  has changed the way they publish changes to specifications over the years. Now days the CSS specification is broken down into modules rather than a single monolithic document. Each module has its own line of history. How far a single module has evolved from it's origin is indicated by its level. Higher level  modules have evolved from previous levels by refinement and by adding features to them. Breaking down the specification into modules allows for changes to be published independently of each other. 
+You still see CSS3 used in different places as an informal version but it doesn't really reflect how specification versioning work these days.
 
-In  addition to levels W3C indicates stability and status of document by using following common vocabulary Working Draft (WD),Candidate Recommendation(CR),Proposed Recommendation(PR) and RECommendation (REC). CR signals a call for implementation. This happens when the work group have enough confidence in document to say that they consider it to complete enough to be tested in practice. At this stage their shall not be any more known unresolved issues. For more information on the other other stability levels see  [the CSS standardization process](https://www.w3.org/Style/2011/CSS-process). It is a short document and useful read. Specification documents are  published as Technical Report(TR). 
+In  addition to levels of modules W3C indicates stability and status of document by using following common vocabulary Working Draft (WD),Candidate Recommendation(CR),Proposed Recommendation(PR) and RECommendation (REC). CR signals a call for implementation. This happens when the work group have enough confidence in document to say that they consider it to be complete enough to be tested in practice. At this stage there shall not be any more known unresolved issues. For more information on the other document maturity levels see  [the CSS standardization process](https://www.w3.org/Style/2011/CSS-process). It is a short and useful read. Specification documents are  published as Technical Report(TR). 
 
 The workgroup publishes a separate document  called snapshot intended for software makers to indicate which modules and features are considered stable and should be implemented. 
 Features being mentioned in snapshot are neither any guarantee for features being correctly implemented or features being frozen.Some parts in snapshot document may still be at W3C candidate recommendation maturity level.
 
-So that was a tiny glimpse of CSS version. If you like to read some of the specifications then maybe following link can avail  
+So that was a tiny glimpse into CSS version. If you like to read some of the specifications then maybe following link can avail  
 
 [css specifications](https://www.w3.org/Style/CSS/current-work).
 
 ## Flex layout
-Is a layout mode intended for more complex webpage and application layouts.To my understanding (from reading the W3C Candidate Recommendation, 19 November 2018)flex layout was introduced to get a flexible as well as more focused way of laying out content of pages. It rids of some complexities of block layout and provides simple yet powerful tools for distributing space  and aligning content in ways that are more in line with modern web applications layouts.Flex layout draws some of these properties from box alignment module (justify-content, align-items, align-self, align-content).
-Flex boxes creates a flex formatting context (basically same as a bfc) which contains the effect of the layout within its element. ((((((((TODO may contrast flexbox with other layouts to clearify the things are better this way Positioned layout  no regard for other element))))))) some block container properties are not applicable in flex layout context for instance float, clear, vertical-align ,::first-line, ::first-letter. Often common design pattern can be simplified with the use of flex layout. 
+Is a layout mode intended for more complex webpage and application layouts. To my understanding (from reading the W3C Candidate Recommendation, 19 November 2018) flex layout was introduced as an extension to display property to get a flexible as well as more focused way of laying out content of pages (as opposed to documents). It rids of some complexities of block layouts and provides simple yet powerful tools for distributing space and aligning content in ways that are more in line with modern web application layouts. Flex layout draws some of these properties from box alignment module (justify-content, align-items, align-self, align-content).
 
+<!--
+CSS 2.1 provides block, inline, table and positioned layout modes. 
 
-The pre-existing layout 
-
-block layout for laying out documents, floats etc
-inline layout for text 
-table layout 2D tabular
-positioned layout. Not part of normal document flow decoupled from other elements of document.
-
-(TODO think this through Some of the older techniques are centered around other concepts such as text or document-centric concepts.)
-
+ provides 4 layout modes block, inline, table and positioned layout. To my understanding the three first revolve around more traditional document concepts. For instance inline is designed with text layout in mind. Block layout was intended for document layout in columns and flowing text around images. Table layout for tabular layout of tables of data. The last (positioned layout) gives us freedom to layout things with a lot of great degree of freedom but is decoupled from other elements of the document, positioned elements are removed from normal document flow. 
+-->
 
 ## Basic concepts
-Flexbox is in some sense single dimensioned layout tool. It allows for content wrapping but whilst doing so each line will be laid out independently and there is at least no simple way to aligning content in one row followed by another row.
-Working in single dimension does not prevent flexbox from being  agnostic about directions in which items are layed out. You can layout items horizontally or vertically to your liking. If you want to create more complex layouts with flexbox you can nest a flexbox within another. Flexbox works from content out. Items are layed out in rows or columns after which an algorithm will determine sizes, spacing and distribute space used by each item. Explicit sizes of items are not necessarily needed. What I see people recommend is to use it for simple or small scaled layout in single direction when working with flexbox and use grid instead when things becomes more complex and large scale. This makes sense to me after reading the above.
+Flexbox is in some sense single dimensioned layout tool. It allows for content wrapping but whilst doing so each line will be laid out independently and there is no simple way to aligning content in one row followed by another row. Working in single dimension does not prevent flexbox from being  agnostic about directions in which items are layed out. You can layout items horizontally or vertically to your liking. If you want to create more complex layouts with flexbox you can nest a flexbox within another. Flexbox works from content out. Items are layed out in rows or columns after which an algorithm will determine sizes, spacing and distribute space used by each item. Explicit sizes of items are not necessarily needed. 
+
+ What I see people recommend is to use it for simple or small scaled layout in single direction when working with flexbox and use grid instead when things becomes more complex and large scale. This makes sense to me after reading the above.
+
+
 
  Flex layout module introduced 12 properties (including shorthands) which is a fair bit of things to keep track of. Following is a short introduction to some of the properties. 
 
 ### Flex container & its items
-Elements declared `display:flex` or `display:inline-flex` are  *flex-containers*. Direct children's of such an element are *flex-items* and layed out according to flex layout box model.
+As mentioned, flexbox extends the display property. Display property, in it self,  defines inner and outer display types. The inner display property dictates decedents formatting context, ruling how decedents are laid out. Outer display dictates the principle box which governs how it interacts in the flow layout.
+In the case of flex-boxes the principle box is either inline or block-level and the formatting context is flex-container. In practice elements declared `display:flex` or `display:inline-flex` are  *flex-containers* and the decedents are called  *flex-items*.
+So flex-containers of type flex have block-level principle box and flex-containers of type inline of course have inline-level principle box. 
+The inner display type of both are of type flex-container.These generate  flex formatting contexts (similar to BFC). Items are layed out according to [flex layout  model]([https://link](https://www.w3.org/TR/css-flexbox-1/#box-model)).
+
+
+Some block container properties are not applicable in flex layout context for instance float, clear, vertical-align ,::first-line, ::first-letter. Often common design pattern can be simplified with the use of flex layout. 
+and the they are layed out according to flex box model. 
+
+
 
 ### Directions
 Directions in which flex-items are layed out works somewhat differently than other layout modes. Two axis are defined, the primary axis is called the *main axis* and a perpendicular axis called *cross axis*. The main-axis extends from main-start to main-end and cross-axis from cross-start to cross-end. Flex items are layed along the main-axis.
