@@ -21,18 +21,17 @@
 - [Links](#links)
 
 # The layout
-So this is another two column layout. There are a few imperfections to the layout, luckily the focus 
-for this exercise was not UI design but learning basics of flexbox :-). 
+So this is another two column layout. There are a few imperfections to the layout, luckily the focus for this exercise was not UI design but learning basics of flexbox :-). 
 
 ![layout](./img/readme/layout.png)
 
 # A side note on CSS versioning.
-Before you read the following do know that I'm talking about speciations below. Specifications are not manuals. Even if the CSS specifications contain a lot of interesting and useful material they are not so much intended for end user of CSS to
+Before you read the following do know that I'm talking about specifications below. Specifications are not manuals. Even if the CSS specifications contain a lot of interesting and useful material they are not so much intended for end user of CSS to
 be used at their daily work. For instance [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) will probably serve you better if you are looking for a manual.Implementors of CSS  on the other hand will find specifications invaluable. I don't usually spend days at end reading specifications but every now and than some twisted part of my brain gets activated and takes me down one of these rabbit holes. 
 
 Specifications put a lot of emphasis on vocabulary. For instance verbs as shall, must and should have formal and well defined meaning. In contrast the text herein just consists of words by a humble man trying to make sense of things.
 
-W3C (world wide web consortium) is handling the specification of the CSS language. CSS  has changed the way they publish changes to specifications over the years. Now days the CSS specification is broken down into modules rather than a single monolithic document. Each module has its own line of history. How far a single module has evolved from it's origin is indicated by its level. Higher level  modules have evolved from previous levels by refinement and by adding features to them. Breaking down the specification into modules allows for changes to be published independently of each other. 
+W3C (world wide web consortium) is handling the specification of the CSS language. CSS  has changed the way they publish changes to specifications over the years. Now days the CSS specification is broken down into modules rather than a single monolithic document. Each module has its own line of history. How far a single module has evolved from it's origin is indicated by its level (level 1, level 2, etc). Higher level  modules have evolved from previous levels through refinement and by adding features to them. Breaking down the specification into modules allows for changes to be published independently of each other. 
 You still see CSS3 used in different places as an informal version but it doesn't really reflect how specification versioning work these days.
 
 In  addition to levels of modules W3C indicates stability and status of document by using following common vocabulary Working Draft (WD),Candidate Recommendation(CR),Proposed Recommendation(PR) and RECommendation (REC). CR signals a call for implementation. This happens when the work group have enough confidence in document to say that they consider it to be complete enough to be tested in practice. At this stage there shall not be any more known unresolved issues. For more information on the other document maturity levels see  [the CSS standardization process](https://www.w3.org/Style/2011/CSS-process). It is a short and useful read. Specification documents are  published as Technical Report(TR). 
@@ -55,22 +54,21 @@ CSS 2.1 provides block, inline, table and positioned layout modes.
 -->
 
 ## Basic concepts
-Flexbox is in some sense single dimensioned layout tool. It allows for content wrapping but whilst doing so each line will be laid out independently and there is no simple way to aligning content in one row followed by another row. Working in single dimension does not prevent flexbox from being  agnostic about directions in which items are layed out. You can layout items horizontally or vertically to your liking. If you want to create more complex layouts with flexbox you can nest a flexbox within another. Flexbox works from content out. Items are layed out in rows or columns after which an algorithm will determine sizes, spacing and distribute space used by each item. Explicit sizes of items are not necessarily needed. 
+Flexbox is in some sense single dimensioned layout tool. It allows for content wrapping but whilst doing so each line will be laid out independently and there is no simple way to aligning content in one row followed by another row. Working in single dimension does not prevent flexbox from being  agnostic about directions in which items are layed out. You can layout items horizontally or vertically to your liking. If you want to create more complex layouts with flexbox you can nest a flexbox within another. Flexbox works from content out. Items are layed out in rows or columns and content determines how much space each item needs. An algorithm will determine sizes, spacing and distribute space used by each item. Explicit sizes of items are not necessarily needed. 
 
 Flex layout module introduced 12 properties (including shorthands) which is a fair bit of things to keep track of. Following is a short introduction to some of the properties. 
 
 ## Flex container & its items
 As mentioned, flexbox extends the display property. Display property, in it self,  defines inner and outer display types. The inner display property dictates decedents formatting context, ruling how decedents are laid out. Outer display dictates the principle box which governs how it interacts in the flow layout.
 In the case of flex-boxes the principle box is either inline or block-level and the formatting context is flex-container. In practice elements declared `display:flex` or `display:inline-flex` are  *flex-containers* and the decedents are called  *flex-items*.
-So flex-containers of type flex have block-level principle box and flex-containers of type inline of course have inline-level principle box. 
-The inner display type of both are of type flex-container.These generate  flex formatting contexts (similar to BFC). Items are layed out according to [flex layout  model]([https://link](https://www.w3.org/TR/css-flexbox-1/#box-model)).
+So flex-containers of type flex have block-level principle box and flex-containers of type inline of course have inline-level principle box. The inner display type of both are of type flex-container.These generate  flex formatting contexts (similar to BFC). Items are layed out according to [flex layout  model]([https://link](https://www.w3.org/TR/css-flexbox-1/#box-model)).
 
 
 ## Directions
-Directions in which flex-items are layed out works somewhat differently than other layout modes. Two axis are defined, the primary axis is called the *main axis* and a perpendicular axis called *cross axis*. The main-axis extends from main-start to main-end and cross-axis from cross-start to cross-end. Flex items are layed along the main-axis.
-How these map to physical directions are determined by flex-flow and writing mode.  
+Directions in which flex-items are layed out, works somewhat differently than older layout modes. Two axis are defined, the primary axis is called the *main axis* and perpendicularly to main axis we have the *cross axis*. The main-axis extends from main-start to main-end and cross-axis from cross-start to cross-end. Flex items are layed along the main-axis. How axises are mapped in physical worlds directions are determined by flex-flow and [writing mode](https://www.w3.org/TR/css-writing-modes-3/).  
 
-![alt](img/readme/axis.svg)
+![Axis ](img/readme/axis.svg)
+
 ### Flex-direction property
 Will set the direction of main-axis thus determining in which direction flex items are layed out. The direction is also dependent on writing mode. Writing mode is used to support international writing modes. The values i mostly use are. 
 
