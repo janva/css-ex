@@ -119,7 +119,8 @@ td {
 .standings > table th:nth-child(2) {
   width: 15%;
 }
-.standings tbody  tr:nth-child(odd) td:not(:last-child) td:not(.featured) {
+.standings tbody  tr:nth-child(odd):not(.featured-team) td:not(:last-child)
+  {
   background-color:#102036;
 }
 .standings tbody tr.featured-team  {
