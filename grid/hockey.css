@@ -1,0 +1,132 @@
+:root {
+  box-sizing: border-box;
+  --border-rad: 1em;
+}
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+body {
+  background-color: #1b3253;
+  color: #fff;
+
+  font-family: Roboto;
+  line-height: 1.4;
+}
+th {
+  text-align: center;
+}
+td {
+  text-align: center;
+}
+.container {
+  display: grid;
+  grid-template-areas:
+    'main-nav scores trends player-of-interest'
+    'main-nav stats standings standings';
+  grid-template-columns: 1fr 4fr 4fr 3fr;
+  grid-template-columns: repeat (2, auto);
+  gap: 1em;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.sidebar-nav {
+  grid-area: main-nav;
+  color: black;
+  border-radius: var(--border-rad) 0 0 var(--border-rad);
+  background-color: #d8d8d8;
+}
+.scoreboard {
+  grid-area: scores;
+}
+.scoreboard__title {
+  text-align: center;
+}
+.scoreboard__main-wrapper {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1em;
+}
+.scoreboard__team-logo {
+  object-fit: contain;
+}
+.scoreboard__gameinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.scoreboard__gameinfo * + * {
+  margin-top: 1em;
+}
+.scoreboard__scores {
+  font-size: 2rem;
+}
+.scoreboard__watch {
+  color: #498e5c;
+  border: 1px solid #498e5c;
+  border-radius: 0.5em;
+  padding: 0.2em 0.8em;
+}
+.team-trends {
+  grid-area: trends;
+}
+.player {
+  grid-area: player-of-interest;
+  font-family: 'Kelly Slab', cursive;
+}
+.player__number {
+  text-align: center;
+  font-size: 8rem;
+}
+.player__hashtag {
+  font-size: 4rem;
+}
+.player__name {
+  font-size: 2rem;
+}
+.standings {
+  grid-area: standings;
+}
+.standings > table {
+  /* border : 1px solid red; */
+  overflow-x: auto;
+  border-collapse: collapse;
+  table-layout:fixed;
+  text-transform: uppercase;
+  width: 100%;
+}
+.points-col{
+  background-color: red;
+}
+.standings > table th:nth-child(2) {
+  width: 15%;
+}
+ 
+.standings tbody  tr:nth-child(odd){
+background-color:#102036;
+}
+thead th {
+  font-weight: bolder;
+}
+th{
+  letter-spacing: 2px;
+}
+th, td {
+  padding: 0.5em;
+}
+
+.tile {
+  border-radius: var(--border-rad);
+  background-color: #102036;
+}
+.tile--outlined {
+  border: 1px solid #5d6a8a;
+  background: none;
+}
+.tile--circle {
+  border: 1px solid #5d6a8a;
+  background: none;
+  border-radius: 50%;
+}

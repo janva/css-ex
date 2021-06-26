@@ -81,13 +81,13 @@ Will set the direction of main-axis thus determining in which direction flex ite
 The reversed directions of the above are also available  through `row-reverse` and `column-reverse` if in case you have such needs.
 
 ### Wrapping items
-FLex-wrap determine if flex container should be layed out in single line (single-line flex container) or in several lines (multi-line flex container). Normally items do their best to fit on single line. Flex wrap allows you to change this behavior. In case an item  wraps it will be stacked along flex containers cross-axis. If wrapping occurs each line is layed out independently. In effect flexible lengths, justify content and align-self will be applied onto each line of items separately. Also notice that align-content only applies to multiline flex containers. That is it has no effect on single-line flex containers. Lets have a quick overview of some properties.
+Flex-wrap determine if flex container should be layed out in single line (single-line flex container) or in several lines (multi-line flex container). Normally items do their best to fit on single line. Flex wrap allows you to change this behavior. In case an item  wraps it will be stacked along flex containers cross-axis. If wrapping occurs each line is layed out independently. In effect flexible lengths, justify content and align-self will be applied onto each line of items separately. Also notice that align-content only applies to multiline flex containers. That is it has no effect on single-line flex containers. Lets have a quick overview of some properties.
 
 `flex-wrap: no-wrap` 
 : single line no wrapping.
 
 `flex-wrap: wrap` 
-: wrap onto multiple lines in cross axis direction
+: wrap onto multiple lines in cross axis direction if needed.
 
 `flex-wrap: wrap-reverse` 
 : wrap onto multiple lines in cross axis reversed direction swapping the cross-start and cross-end
@@ -99,35 +99,29 @@ Flex-flow is just a shorthand for flex-direction and flex-wrap. Valid values are
 : <'flexdirection'>||<'flex-wrap'>;
 
 ## Flexible Sizes
-Flex items are able to alter their width/height  (to flex) as to fill available space in the main dimension. The 
-flex properties controls the sizes along main axis direction. The `flex` property is shorthand for `flex-grow`, `flex-shrink` and `flex-basis` properties. These can be used as individual properties but the recommendation is use the shorthand. unless `flex-grow`, `flex-shrink` are set to 0 items will fill remaining space. If they are set to 0 items will be fully inflexible. These properties are set on the flex-items them self. 
+Flex items are able to alter their width/height  (to flex) as to fill available space in the main dimension. The flex properties controls the sizes along main axis direction. The `flex` property is shorthand for `flex-grow`, `flex-shrink` and `flex-basis` properties. These can be used as individual properties but the recommendation is use the shorthand. unless `flex-grow`, `flex-shrink` are set to 0 items will fill remaining space. If they are set to 0 items will be fully inflexible. These properties are set on the flex-items them self. 
 
 `flex-grow:<number>`
 : Specifies a flex grow factor. It determines at what rate item will grow in relation to other items when distributing remaining space. The default value is 1. No negative number are allowed.
 
 `flex-shrink:<number>`
-: Specifies a flex shrink factor. It determines at what rate item will shrink in relation to other items if necessary. This can occur after space has been distributed in situation where sizes become larger then it's flex container. The default is 1.No negative number are allowed.
-Shrink does not apply if wrapping is active.
+: Specifies a flex shrink factor. It determines at what rate item will shrink in relation to other items if necessary. This can occur after space has been distributed in situation where sizes become larger then it's flex container. The default is 1.No negative number are allowed. Shrink does not apply if wrapping is active.
 
 `flex-basis:<'width'>`
-:  Specifiec the initial main size  of flex-item, before remaining free space has been distributed. Values can be same as `width` , `height` plus the value `content`  properties but `auto` and  `content`
- get some special treatment. `auto` uses the `main size`  width and height property to determine base size. `content` set size automatically based on flex item's content, be ware this might not be supported in your browser. 
+:  Specifies the initial main size  of flex-item, before remaining free space has been distributed. Values can be same as `width` , `height` plus the value `content`  properties but `auto` and  `content` get some special treatment. `auto` uses the `main size`  width and height property to determine base size. `content` set size automatically based on flex item's content, be ware this might not be supported in all browsers. 
 
 `flex : <'flex-grow'><'flex-shrink'><'flex-basis'>`
- : shortand property for above three properties. In addition we can set flex value to `none`. This is  
-  is equivalent to setting  values to  0 0 auto. 
+ : shortand property for above three properties. In addition we can set flex value to `none`. setting flex to `none`  is equivalent to setting  values to  0 0 auto. 
 
 flex-basis is calculated before remaining space is distributed by flex-grow and flex-shrink.  Auto margins can be used to absorb extra space. This can be useful if we want to push some item(s) in some direction. Spacing is applied after margins and flex-grow values are calculated so item having flex-grow none-zero value or auto margin will grow to fill remaining space thus justify-content will have no effect in such cases.  
 
 ## Alignment & spacing
 Alignment within flex container is applied after flex has finalized it work. That is when sizes have been calculated and space has been distributed among the different items. Before going into flex specific properties lets take glimpse at how the ordinary auto margin work together with flexbox. 
 
-Box aligment propreties are also respected in flex layouts.
-
 ### Auto margins
 Auto margins can be used inside flex container. Take a look at the navigation links in following image.
 ![pushing item right with auto margin](./img/readme/flexautomargin.png)
-The about link has been pushed to right and the rest of the links are group to left. This was achieved simply by applying `margin-left:auto` to about item which sits inside a flex container. This was  all it took to achieve the layout of  main navigation.But there are some things we need to be aware of when working with auto-margins and flexbox. One gotcha using auto margins arise  when boxes  overflow. In such cases auto margins are just ignored. The effect of this can be seen in following image.
+The about link has been pushed to right and the rest of the links are group to left. This was achieved simply by applying `margin-left:auto` to about item which sits inside a flex container. This was all it took to achieve the layout of  main navigation.But there are some things we need to be aware of when working with auto-margins and flexbox. One gotcha using auto margins arise when boxes  overflow. In such cases auto margins are just ignored. The effect of this can be seen in following image.
 
 ![auto layout vs align-self](./img/readme/auto-margin.png)
 
@@ -139,16 +133,16 @@ While flex basis and flexible length are calculated auto margins are treated as 
 justify-content, align-items, align-content are applied onto flex-container and align-self is applied onto items. Justify-content is applied to main-axis. Align-items and Align-self is applied to cross-axis. these are all single-line alignment properties. There's a separate property named align-content to handle alignment of multiline content.
 
 ### justify content
-aligns flexitems along main axis this can take on the values `flex-start`, `flex-end`, `center`, `space-between`, `space-around` and `space-evenly`. The three first just pack all the items at start, center or end along the main axis. The two last distributes the remain spain between the items. The difference between the two being that space-around adds space before first item and after last item whereas space between only adds space between elements. Space-evenly distributes space between items so that there is same amount of space between any two items.
+aligns flexitems along main axis this can take on the values `flex-start`, `flex-end`, `center`, `space-between`, `space-around` and `space-evenly`. The three first just pack all the items at start, center or at end along the main axis. The two last distributes the remain spain between the items. The difference between the two being that space-around adds space before first item and after last item whereas space between only adds space between elements. Space-evenly distributes space between items so that there is same amount of space between any two items.
 
 ### Align-items
-The aligns items works along the cross-axis and is applied to all items in flex-container.It takes the values  `flex-start`, `flex-end`, `center`,  `stretch` and `baseline`. The flex-start, flex-end and center, work in similar fashion as justify-content but along cross-axis.The stretch will stretch item to the cross-end. baseline will align items to axis baselines.W3C has [introdoction to baselines](https://www.w3.org/TR/css-writing-modes-3/#intro-baselines) in case you want to know more about baselines.
+The aligns items works along the cross-axis and is applied to all items in flex-container.It takes the values  `flex-start`, `flex-end`, `center`,  `stretch` and `baseline`. The flex-start, flex-end and center, work in similar fashion as justify-content but along cross-axis.The stretch will stretch item to the cross-end. baseline will align items to axis baselines.You can find [an introdoction to baselines](https://www.w3.org/TR/css-writing-modes-3/#intro-baselines) at W3C in case you want to know more about baselines.
 
 ### Align-self
-Align-self overides align-items values per item. It pretty much works as align-items and takes the same values with the addition of `auto`. Auto is the default and hands over cross-axis alignment control to parents align-item value.
+Align-self overrides align-items values per item. It pretty much works as align-items and takes the same values with the addition of `auto`. Auto is the default and hands over cross-axis alignment control to parents align-item value.
 
 ### Align-content (multiline alignment)
-Aligns container lines within flex container when there is extra space in the cross axis. This property does not work on single content.
+Aligns container lines within flex container when there is extra space in the cross axis. This property does not work on single line content.
 This works similar to justify content but in cross-axis direction on wrapped content. Valid values are `flex-start`, `center`, `flex-end`, `space-between`, `space-around`, and `stretch`
 
 # Links
@@ -156,7 +150,7 @@ And here are a couple of useful flexbox related links.
 
 [MDN web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox).
 
-[css tricks complete guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
+[CSS tricks complete guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
 
-[w3c flexible box layout specification ](https://www.w3.org/TR/css-flexbox-1/).
+[W3C flexible box layout specification ](https://www.w3.org/TR/css-flexbox-1/).
 
