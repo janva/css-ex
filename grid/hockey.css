@@ -107,15 +107,23 @@ td {
   text-transform: uppercase;
   width: 100%;
 }
+.standings > table >caption{
+  padding: 0.8em;
+}
+.standings > table >thead{
+  background-color: red;
+}
 .points-col{
   background-color: red;
 }
 .standings > table th:nth-child(2) {
   width: 15%;
 }
- 
-.standings tbody  tr:nth-child(odd){
-background-color:#102036;
+.standings tbody  tr:nth-child(odd) td:not(:last-child) td:not(.featured) {
+  background-color:#102036;
+}
+.standings tbody tr.featured-team  {
+  background-color: #498e5c;
 }
 thead th {
   font-weight: bolder;
@@ -126,7 +134,6 @@ th{
 th, td {
   padding: 0.5em;
 }
-
 .tile {
   border-radius: var(--border-rad);
   background-color: #102036;
