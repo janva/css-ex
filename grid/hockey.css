@@ -73,8 +73,17 @@ td {
   grid-area: trends;
 }
 .player {
-  grid-area: player-of-interest;
   font-family: 'Kelly Slab', cursive;
+  grid-area: player-of-interest;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+.player__num-wrapper{
+  display:flex;
+  margin-top:2.5em;
+  line-height: 0.8;
 }
 .player__number {
   text-align: center;
@@ -82,6 +91,7 @@ td {
 }
 .player__hashtag {
   font-size: 4rem;
+  align-self:start;
 }
 .player__name {
   font-size: 2rem;
