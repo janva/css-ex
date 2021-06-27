@@ -16,8 +16,8 @@ body {
 td,
 th {
   padding: 0.5em;
+  border-collapse: collapse;
 }
-
 td {
   text-align: center;
 }
@@ -113,8 +113,6 @@ thead th {
 
 .standings {
   grid-area: standings;
-}
-.standings {
   /* border : 1px solid red; */
   overflow: hidden;
   border-collapse: collapse;
@@ -124,7 +122,8 @@ thead th {
 }
 .standings > caption {
   padding: 0.8em;
-  border: 1px solid #5d6a8a;
+  background-color: #102036;
+  /* border: 1px solid #5d6a8a; */
   border-bottom: none;
   border-radius: var(--border-rad) var(--border-rad) 0 0;
 }
@@ -133,14 +132,9 @@ thead th {
 }
 .points-col {
   background-color: red;
-  border-collapse: collapse;
+  border-collapse: separate;
 }
-colgroup {
-  border-collapse: none;
-}
-col {
-  border-collapse: collapse;
-}
+
 .standings > thead th:nth-child(2) {
   width: 15%;
 }
@@ -159,11 +153,12 @@ col {
   background: none;
 }
 .tile--outlined-table {
-  border: 4px solid #5d6a8a;
+  /* border: 4px solid #5d6a8a; */
   /* outline: 0.5rem solid khaki; */
   border-radius: 0 0 var(--border-rad) var(--border-rad);
   background: none;
-  /* opacity: 0.5; */
+  box-shadow: 10px 10px 20px #243957,
+  -10px -10px 20px #2c3449;
 }
 .tile--circle {
   border: 1px solid #5d6a8a;
