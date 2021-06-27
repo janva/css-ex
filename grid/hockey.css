@@ -36,7 +36,7 @@ thead th {
   display: grid;
   grid-template-areas:
     'main-nav scores trends player-of-interest'
-    'main-nav stats standings standings';
+    'main-nav statistics standings standings';
   grid-template-columns: 1fr 4fr 4fr 3fr;
   grid-template-columns: repeat (2, auto);
   gap: 1em;
@@ -108,12 +108,23 @@ thead th {
 .player__name {
   font-size: 2rem;
 }
-.stats {
+.stats-table  {
+  /* border : thin solid red;  */
+}
+.statistics  {
+  grid-area: statistics;
+  text-transform: uppercase;
+  width: 100%;
+}
+/* currently has different structure */
+.statistics> caption{
+  padding: 0.8em;
+  background-color: #102036;
+
 }
 
 .standings {
   grid-area: standings;
-  /* border : 1px solid red; */
   overflow: hidden;
   border-collapse: collapse;
   table-layout: fixed;
@@ -126,6 +137,9 @@ thead th {
   /* border: 1px solid #5d6a8a; */
   border-bottom: none;
   border-radius: var(--border-rad) var(--border-rad) 0 0;
+}
+.statistics tbody tr:nth-child(odd){
+  background-color: #102036;
 }
 .standings > thead {
   background-color: red;
