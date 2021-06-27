@@ -14,11 +14,21 @@ body {
   font-family: Roboto;
   line-height: 1.4;
 }
+td,
 th {
-  text-align: center;
+  padding: 0.5em;
 }
+
 td {
   text-align: center;
+}
+th {
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+thead th {
+  font-weight: bolder;
 }
 .container {
   display: grid;
@@ -75,14 +85,14 @@ td {
 .player {
   font-family: 'Kelly Slab', cursive;
   grid-area: player-of-interest;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items:center;
+  align-items: center;
 }
-.player__num-wrapper{
-  display:flex;
-  margin-top:2.5em;
+.player__num-wrapper {
+  display: flex;
+  margin-top: 2.5em;
   line-height: 0.8;
 }
 .player__number {
@@ -91,7 +101,7 @@ td {
 }
 .player__hashtag {
   font-size: 4rem;
-  align-self:start;
+  align-self: start;
 }
 .player__name {
   font-size: 2rem;
@@ -99,49 +109,50 @@ td {
 .standings {
   grid-area: standings;
 }
-.standings > table {
+.standings {
   /* border : 1px solid red; */
-  overflow-x: auto;
+  overflow: hidden;
   border-collapse: collapse;
-  table-layout:fixed;
+  table-layout: fixed;
   text-transform: uppercase;
   width: 100%;
 }
-.standings > table >caption{
+.standings > caption {
   padding: 0.8em;
+  border: 1px solid #5d6a8a;
+  border-bottom: none;
+  border-radius: var(--border-rad) var(--border-rad) 0 0;
 }
-.standings > table >thead{
+.standings > thead {
   background-color: red;
 }
-.points-col{
+.points-col {
   background-color: red;
 }
-.standings > table th:nth-child(2) {
+.standings > thead th:nth-child(2) {
   width: 15%;
 }
-.standings tbody  tr:nth-child(odd):not(.featured-team) td:not(:last-child)
-  {
-  background-color:#102036;
+.standings tbody tr:nth-child(odd):not(.featured-team) td:not(:last-child) {
+  background-color: #102036;
+  margin-right: -10px;
 }
-.standings tbody tr.featured-team  {
+.standings tbody tr.featured-team {
   background-color: #498e5c;
-}
-thead th {
-  font-weight: bolder;
-}
-th{
-  letter-spacing: 2px;
-}
-th, td {
-  padding: 0.5em;
 }
 .tile {
   border-radius: var(--border-rad);
   background-color: #102036;
 }
 .tile--outlined {
-  border: 1px solid #5d6a8a;
+  border: thin solid #5d6a8a;
   background: none;
+}
+.tile--outlined-table {
+  border: 4px solid #5d6a8a;
+  /* outline: 0.5rem solid khaki; */
+  border-radius: 0 0 var(--border-rad) var(--border-rad);
+  background: none;
+  /* opacity: 0.5; */
 }
 .tile--circle {
   border: 1px solid #5d6a8a;
