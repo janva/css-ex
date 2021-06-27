@@ -10,7 +10,6 @@
 body {
   background-color: #1b3253;
   color: #fff;
-
   font-family: Roboto;
   line-height: 1.4;
 }
@@ -29,6 +28,9 @@ th {
 
 thead th {
   font-weight: bolder;
+}
+.small-logo {
+  width: 4em;
 }
 .container {
   display: grid;
@@ -106,6 +108,9 @@ thead th {
 .player__name {
   font-size: 2rem;
 }
+.stats {
+}
+
 .standings {
   grid-area: standings;
 }
@@ -128,13 +133,19 @@ thead th {
 }
 .points-col {
   background-color: red;
+  border-collapse: collapse;
+}
+colgroup {
+  border-collapse: none;
+}
+col {
+  border-collapse: collapse;
 }
 .standings > thead th:nth-child(2) {
   width: 15%;
 }
 .standings tbody tr:nth-child(odd):not(.featured-team) td:not(:last-child) {
   background-color: #102036;
-  margin-right: -10px;
 }
 .standings tbody tr.featured-team {
   background-color: #498e5c;
