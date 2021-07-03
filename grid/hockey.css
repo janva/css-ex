@@ -9,7 +9,7 @@
 }
 body {
   background-color: #1b3253;
-  color: #fff;
+  color: rgb(246, 244, 244);
   font-family: Roboto;
   line-height: 1.4;
 }
@@ -46,9 +46,26 @@ thead th {
 
 .sidebar-nav {
   grid-area: main-nav;
-  color: black;
   border-radius: var(--border-rad) 0 0 var(--border-rad);
-  background-color: #d8d8d8;
+  /* background-color: rgb(246, 244, 244);
+  background-color: #091c36; */
+  background-color: #102036;
+  color: antiquewhite;
+  box-shadow: 10px 10px 20px #243957, -10px -10px 20px #2c3449;
+}
+.sidebar-nav > ul {
+  justify-items: center;
+
+  /* list-style: none outside none; */
+  list-style-type: none;
+}
+.nav-button + .nav-button {
+  margin-top: 1em;
+}
+.nav-button > a > img {
+  /* text-decoration: none; */
+  width: 2.5em;
+  color: white;
 }
 .scoreboard {
   grid-area: scores;
