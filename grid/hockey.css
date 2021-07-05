@@ -73,7 +73,7 @@ thead th {
   display: flex;
   justify-content: space-around;
   align-content: center;
-  margin-top: 3em;
+  margin-top: 2.2em;
   margin-bottom: 2em;
 }
 .scoreboard__team-logo {
@@ -85,10 +85,16 @@ thead th {
   align-items: center;
 }
 
+.scoreboard__period {
+  font-size: 1.8rem;
+}
 .scoreboard__scores {
-  font-size: 2rem;
+  padding: 0.2em 0;
+  font-size: 3rem;
+  letter-spacing: 2px;
 }
 .scoreboard__watch {
+  font-size: 1.6rem;
   margin-top: 0.5em;
   color: #498e5c;
   border: 1px solid #498e5c;
@@ -97,8 +103,6 @@ thead th {
 }
 .team-trends {
   grid-area: trends;
-}
-.trends {
 }
 .player {
   font-family: 'Kelly Slab', cursive;

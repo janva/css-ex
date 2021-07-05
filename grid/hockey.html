@@ -5,10 +5,6 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://d3js.org/d3.v7.min.js " defer></script>
-  <script src="https://d3js.org/d3-scale.v3.min.js" defer></script>
-
-
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,7 +28,7 @@
       <div class="scoreboard__main-wrapper">
         <img class="scoreboard__team-logo" src="img/hv71.png" alt="HV71 logo" />
         <div class="scoreboard__gameinfo">
-          <span class="scoreboard_period">P1</span>
+          <span class="scoreboard__period">P1</span>
           <span class="scoreboard__scores">0:0</span>
           <span class="scoreboard__watch">00:00</span>
         </div>
@@ -40,7 +36,10 @@
       </div>
     </div>
     <div class="team-trends tile">
-        <svg class="trends" viewBox="-10 0 270 200">
+      <h2 class="scoreboard__title">Trends over recent games</h2>
+      <hr class="separator-line" />
+
+        <svg  viewBox="-25 15 320 180">
             <g class="home-team-path" 
                stroke="green" 
                stroke-width="2"
@@ -65,6 +64,13 @@
                         L200 120 
                         L250 120 
                         "></path></g>
+                <g transform="translate(0,140)">
+                  <!-- <rect y="25"width="15" height="15" style="fill:green;"></rect> -->
+                  <line x1="0" y1="38" x2="15" y2="38" style="stroke:green;stroke-width:2"></line>
+                  <text x="20" y="38" fill="white">HV-71</text>
+                  <line x1="80" y1="38" x2="95" y2="38" style="stroke:red;stroke-width:2"></line>
+                  <text x="100" y="38" fill="white">AIK</text>
+                </g>
         </svg>
     </div>
     <div class="player tile tile--circle">

@@ -8,3 +8,6 @@ is to do a few exercises acquiring some more in depth understanding in the ins a
 
  ## [Exercise 2](./flex)
  ![first](./flex/img/readme/layout.png)   
+ 
+ ## [Exercise 3](./grid)
+ ![first](./grid/img/readme/hockey-grid.png)   
