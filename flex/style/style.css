@@ -17,13 +17,17 @@ body * + * {
 .bg-image {
   object-fit: cover;
   width: 100vw;
-  max-height: 40em;
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
   margin: 0;
   padding: 0;
+}
+@media screen and (min-width: 1700px) {
+  .bg-image {
+    max-height: 40em;
+  }
 }
 
 .container {

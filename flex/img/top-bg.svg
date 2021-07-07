@@ -1,101 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="1440"
-   height="478"
-   viewBox="0 20 1440 478"
-   fill="none"
-   version="1.1"
-   id="svg23"
-   sodipodi:docname="top-bg.svg"
-   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
-  <metadata
-     id="metadata27">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="2488"
-     inkscape:window-height="1376"
-     id="namedview25"
-     showgrid="false"
-     inkscape:zoom="1.2280436"
-     inkscape:cx="750.53637"
-     inkscape:cy="239"
-     inkscape:window-x="72"
-     inkscape:window-y="27"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg23" />
-  <g
-     id="g4"
-     transform="matrix(0.9892743,0,0,1.0045201,2.8469842,-20.858968)"
-     style="filter:url(#filter0_d)">
-    <path
-       d="M 263.501,229.961 C 112.481,281.29 55.3241,21.6258 -113,-31.2129 L 1452.78,-76 1479,470 C 1328.5,280.787 1105.12,131.832 945.711,229.961 786.302,328.09 633.185,140.89 524.639,140.89 c -108.545,0 -261.138,89.071 -261.138,89.071 z"
-       id="path2"
-       inkscape:connector-curvature="0"
-       style="fill:#216375" />
-  </g>
-  <defs
-     id="defs21">
-    <filter
-       id="filter0_d"
-       x="-117"
-       y="-76"
-       width="1600"
-       height="554"
-       filterUnits="userSpaceOnUse"
-       color-interpolation-filters="sRGB">
-      <feFlood
-         flood-opacity="0"
-         result="BackgroundImageFix"
-         id="feFlood6" />
-      <feColorMatrix
-         in="SourceAlpha"
-         type="matrix"
-         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-         id="feColorMatrix8" />
-      <feOffset
-         dy="4"
-         id="feOffset10" />
-      <feGaussianBlur
-         stdDeviation="2"
-         id="feGaussianBlur12" />
-      <feColorMatrix
-         type="matrix"
-         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-         id="feColorMatrix14" />
-      <feBlend
-         mode="normal"
-         in2="BackgroundImageFix"
-         result="effect1_dropShadow"
-         id="feBlend16" />
-      <feBlend
-         mode="normal"
-         in="SourceGraphic"
-         in2="effect1_dropShadow"
-         result="shape"
-         id="feBlend18" />
-    </filter>
-  </defs>
+<svg width="1440" height="407" viewBox="0 0 1440 407" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d)">
+<path d="M181 125C57 172 -182 -8.00001 -189.98 -116.887L1500.78 -126.889L1517.76 398.017C1348.15 211.936 1141.16 69.3471 954.192 158.836C767.221 248.325 521.676 91.2071 396 88C270.324 84.793 181 125 181 125Z" fill="#216375"/>
+</g>
+<defs>
+<filter id="filter0_d" x="-193.98" y="-126.889" width="1715.74" height="532.906" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+</defs>
 </svg>
