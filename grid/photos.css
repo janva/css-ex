@@ -23,16 +23,31 @@ body {
   justify-content: center;
 }
 .sidebar {
+  padding-right: 1em;
+}
+.sidebar > .active {
   writing-mode: vertical-rl;
   /* Hmm maybe calc from variables */
   width: 5.1em;
 }
-.sidebar > h1 {
+.sidebar > .active > h1 {
   color: antiquewhite;
   font-size: 5em;
   margin: 0;
   padding-right: 0.1em;
 }
+.menu a {
+  color: antiquewhite;
+  text-decoration: none;
+}
+.menu ul {
+  font-size: 2em;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-right: 0.3em;
+}
+
 .album {
   /* margin: 0 auto; */
   width: 70vw;
