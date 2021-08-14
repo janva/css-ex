@@ -9,30 +9,42 @@
 }
 
 body {
-  /* font-family: 'Roboto', sans-serif; */
   font-family: 'Poiret One', cursive;
   background-color: #246b77a6;
-  padding: 7em 0;
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh; */
+  /* padding: 7em 0; */
 }
+
 .wrapper {
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  margin-top: 5em;
+  padding: 0 30em;
 }
+#homepage,
+#photogallery,
+#about {
+  /* display: inline-block; */
+  padding-top: 5em;
+  min-height: 100vh;
+  /* left: 10em; */
+}
+
 .sidebar {
-  padding-right: 1em;
+  /* margin-top: -2em; */
+  /* padding-right: 1em; */
+  position: fixed;
+  margin-left: -8em;
+  /* translate seems to change the position when clicking on link */
+  /* transform: translateX(-100%); */
 }
-.sidebar > .active {
+.sidebar > .page-heading {
   writing-mode: vertical-rl;
-  /* Hmm maybe calc from variables */
-  width: 5.1em;
 }
-.sidebar > .active > h1 {
+.sidebar > .page-heading > h1 {
   color: antiquewhite;
-  font-size: 5em;
+  font-size: 5rem;
   margin: 0;
   padding-right: 0.1em;
 }
@@ -41,7 +53,7 @@ body {
   text-decoration: none;
 }
 .menu ul {
-  font-size: 2em;
+  font-size: 2rem;
   list-style: none;
   padding-left: 0;
   margin-top: 0;
@@ -49,9 +61,8 @@ body {
 }
 
 .album {
-  /* margin: 0 auto; */
   width: 70vw;
-  display: grid;
+  display: inline-grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-auto-rows: 1fr;
   gap: 0.1em;
